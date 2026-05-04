@@ -2,6 +2,9 @@ and(A, B) :- A, B.
 
 or(A, B) :- A | B.
 
+not(A) :- A, !, fail.
+not(_).
+
 xor(A, B) :- and(not(A), B) | and(A, not(B)).
 
 equal(A, B) :- A, B | not(A), not(B).
